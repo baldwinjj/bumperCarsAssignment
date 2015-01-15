@@ -95,13 +95,13 @@ def getRandom(moveAmount):
 def didCollide(ball1,ball2):
     ball1Center = ball1.getCenter()
     ball2Center = ball2.getCenter()
-    ball1X = ball1Center.getX()
-    ball1Y = ball1Center.getY()
-    ball2X = ball2Center.getX()
-    ball2Y = ball2Center.getY()
+    ball1Xposition = ball1Center.getX()
+    ball1Yposition = ball1Center.getY()
+    ball2Xposition = ball2Center.getX()
+    ball2Yposition = ball2Center.getY()
     ball1Radius = ball1.getRadius()
     ball2Radius = ball2.getRadius()
-    distance = (((ball2X-ball1X)**2) + ((ball2Y-ball1Y)**2))**(1/2)
+    distance = (((ball2Xposition-ball1Xposition)**2) + ((ball2Yposition-ball1Yposition)**2))**(1/2)
     radius = ball1Radius+ball2Radius
     if distance <= radius:
         answer = True
@@ -171,11 +171,11 @@ def collisionV(listV,ball1,ball2,mass1,mass2):
     utX = -unY
     utY = unX
     #finds normal scalars
-    v1n = (unX*v1X)+(unY*v1Y)
-    v2n = (unX*v2X)+(unY*v2Y)
+    v1n = (unX*velocityCar1X)+(unY*velocityCar1Y)
+    v2n = (unX*velocityCar2X)+(unY*velocityCar2Y)
     #finds tangent scalars
-    v1t = (utX*v1X)+(utY*v1Y)
-    v2t = (utX*v2X)+(utY*v2Y)
+    v1t = (utX*velocityCar1X)+(utY*velocityCar1Y)
+    v2t = (utX*velocityCar2X)+(utY*velocityCar2Y)
     #tangental velocities after collision
     v1Prime = v1t
     v2Prime = v2t
