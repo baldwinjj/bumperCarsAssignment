@@ -114,10 +114,10 @@ def didCollide(ball1,ball2):
 #returns True if ball hits a vertical wall, False otherwise
 def hitVertical(ball,win):
     ballCenter = ball.getCenter()
-    ballX = ballCenter.getX()
+    ballXposition = ballCenter.getX()
     radius = ball.getRadius()
     width = win.getWidth()
-    if ballX <= radius or ballX >= width-radius:
+    if ballXposition <= radius or ballXposition >= width-radius:
         answer = True
         randomColor(ball)
     else:
@@ -127,10 +127,10 @@ def hitVertical(ball,win):
 #returns True if ball hits a horizontal wall, False otherwise
 def hitHorizontal(ball,win):
     ballCenter = ball.getCenter()
-    ballY = ballCenter.getY()
+    ballYposition = ballCenter.getY()
     radius = ball.getRadius()
     height = win.getHeight()
-    if ballY <= radius or ballY >= height-radius:
+    if ballYposition <= radius or ballYposition >= height-radius:
         answer = True
         randomColor(ball)
     else:
@@ -148,20 +148,20 @@ def randomColor(circle):
 #returns list of new velocities
 def collisionV(listV,ball1,ball2,mass1,mass2):
     #Velocities of the balls in x and y direction
-    v1X = listV[0][0]
-    v1Y = listV[0][1]
-    v2X = listV[1][0]
-    v2Y = listV[1][1]
+    velocityCar1X = listV[0][0]
+    velocityCar1Y = listV[0][1]
+    velocityCar2X = listV[1][0]
+    velocityCar2Y = listV[1][1]
     #location of ball1 and ball2
     ball1Center = ball1.getCenter()
     ball2Center = ball2.getCenter()
-    ball1X = ball1Center.getX()
-    ball1Y = ball1Center.getY()
-    ball2X = ball2Center.getX()
-    ball2Y = ball2Center.getY()
+    ball1Xposition = ball1Center.getX()
+    ball1Yposition = ball1Center.getY()
+    ball2Xposition = ball2Center.getX()
+    ball2Yposition = ball2Center.getY()
     #find the difference of X's and Y's
-    deltaX = ball2X - ball1X
-    deltaY = ball2Y - ball1Y
+    deltaX = ball2Xposition - ball1Xposition
+    deltaY = ball2Yposition - ball1Yposition
     #finds distance between ball 1 and ball 2
     distance = ((deltaX**2) + (deltaY**2))**(1/2)
     #finds unit normal vector
